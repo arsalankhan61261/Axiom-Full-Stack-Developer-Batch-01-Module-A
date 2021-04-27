@@ -79,6 +79,10 @@ body {
     margin: 0 10px;
 }
 
+.legend li small  {
+    margin-left: 2px;
+}
+
 .legend .seat:not(.occupied):hover {
     cursor: default;
     transform: scale(1);
