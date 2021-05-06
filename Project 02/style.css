@@ -33,7 +33,7 @@ body {
 }
 
 .seat {
-    background-color: darkgray;
+    background-color: gray;
     height: 12px;
     width: 15px;
     margin: 5px;
@@ -66,7 +66,7 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 5px 10px;
     border-radius: 5px;
-    color: lightgray;
+    color: white;
     list-style-type: none;
     display: flex;
     justify-content: space-between;
@@ -79,11 +79,11 @@ body {
     margin: 0 10px;
 }
 
-.legend li small {
+.showcase li small {
     margin-left: 3px;
 }
 
-.legend .seat:not(.occupied):hover {
+.showcase .seat:not(.occupied):hover {
     cursor: default;
     transform: scale(1);
 }
