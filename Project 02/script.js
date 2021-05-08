@@ -1,16 +1,18 @@
 // Get DOM Elements
 const container = document.querySelector('.container');
-const seats = document.querySelectorAll('.row.seat:not(.occupied)');
+const seats = document.querySelectorAll('.row.seat');
 const count = document.getElementById('count');
 const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie');
+
+populateUI();
 
 let ticketPrice = +movieSelect.value;
 
 function updateSelectedCount() {
     const selectedSeats = document.querySelectorAll('.row .seat.selected');
     const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
-    const selectedSeatsCount = selectedSeats.length;
+    const selectedSeatsCount =selectedSeats.length;
     count.innerText = selectedSeatsCount;
     total.innerText = selectedSeatsCount * ticketPrice;
     localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex))
