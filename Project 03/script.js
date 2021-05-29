@@ -28,7 +28,8 @@ function updateProgress() {
 }
 // Create function to stop the video
 function stopVideo() {
-    return true;
+    video.currentTime = 0;
+    video.pause();
 }
 // Create function to update the video progress using the slider
 function setVideoProgress() {
