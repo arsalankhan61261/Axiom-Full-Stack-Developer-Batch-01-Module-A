@@ -21,7 +21,10 @@ function calculate() {
             // Update the DOM to diplay the conversion rate
             rate.innerText = `1 ${currencyOneCode} = ${conversionRate} ${currencyTwoCode}`;
             // Update the Currency Two Amount
-            amountCurrencyTwo.value = (amountCurrencyOne.value * conversionRate).toFixed(2);
+            const currencyNumberFormat = new Intl.NumberFormat();
+            const amount2 = (amountCurrencyOne.value * conversionRate).toFixed(0);
+            currencyNumberFormat.format(amount2);
+            amountCurrencyTwo.value = currencyNumberFormat;
         });
 };
 
