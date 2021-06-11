@@ -30,6 +30,7 @@ p {
     border-radius: 5px;
     font-size: 12px;
     padding: 5px 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .currency {
