@@ -20,11 +20,11 @@ function calculate() {
             const conversionRate = data.conversion_rate;
             // Update the DOM to diplay the conversion rate
             rate.innerText = `1 ${currencyOneCode} = ${conversionRate} ${currencyTwoCode}`;
-            // Update the Currency Two Amount
-            const currencyNumberFormat = new Intl.NumberFormat('en-US');
-            const amount2 = (amountCurrencyOne.value * conversionRate).toFixed(0);
-            currencyNumberFormat.format(amount2);
-            amountCurrencyTwo.value = currencyNumberFormat;
+            // Formatting Currency Two Amount
+            const amount2 = Intl.NumberFormat('en-US', { style: 'currency', currency: currencyTwoCode }).format((amountCurrencyOne.value * conversionRate).toFixed(2));
+            // Updating DOM
+            amountCurrencyTwo.value = amount2;
+            
         });
 };
 
