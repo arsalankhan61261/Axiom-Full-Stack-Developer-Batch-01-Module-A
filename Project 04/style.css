@@ -33,6 +33,7 @@ p {
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
+
 .currency {
     padding: 40px 0;
     display: flex;
@@ -42,9 +43,10 @@ p {
 
 .currency select {
     padding: 10px 20px 10px 10px;
-    border: 2px solid #3edbf0;
+    border-radius: 5px;
+    border: 2px solid #b6c9f0;
     font-size: 16px;
-    background-color: transparent;
+    background-color: #CEF1D5;
 }
 
 .currency input {
@@ -61,10 +63,15 @@ p {
 } 
 
 .rate {
-    color: red;
+    color: #0A2510;
     font-size: 16px;
     padding: 0 10px;
+    border-radius: 5px;
+    border: 2px solid #b6c9f0;
+    background-color: #CEF1D5;
+    font-weight: bold;
 }
+
 
 select:focus, input:focus, button:focus {
     outline: 0;
