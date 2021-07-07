@@ -16,7 +16,7 @@ async function getRandomUser() {
     // Wait for response to convert into JSON
     const data = await res.json();
 
-    // console.log(data);
+    console.log(data);
 
     // Get the User data
     const user = data.results[0];
@@ -37,7 +37,7 @@ async function getRandomUser() {
 function addData(newUser) {
     // Add the new User data into the user data array
     data.push(newUser);
-    console.log('Data Array',data);
+    console.log('Data Array', data);
     // Update the DOM to display users in the data array
     updateDOM();
 }
@@ -51,6 +51,4 @@ function updateDOM(userData = data) {
 }
 
 // Create a Random User
-getRandomUser();
-getRandomUser();
 getRandomUser();
