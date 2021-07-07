@@ -16,18 +16,18 @@ async function getRandomUser() {
     // Wait for response to convert into JSON
     const data = await res.json();
 
-    console.log(data);
+    // console.log(data);
 
     // Get the User data
     const user = data.results[0];
-    console.log(user);
+    // console.log(user);
 
     // Create the New User
     const newUser = {
         name: `${user.name.title} ${user.name.first} ${user.name.last}`,
         balance: Math.floor(Math.random()*1000000)
     }
-    console.log(newUser);
+    // console.log(newUser);
 
     // Add the new user into the Data Array
     addData(newUser);
@@ -37,7 +37,7 @@ async function getRandomUser() {
 function addData(newUser) {
     // Add the new User data into the user data array
     data.push(newUser);
-    console.log('Data Array', data);
+    // console.log('Data Array', data);
     // Update the DOM to display users in the data array
     updateDOM();
 }
@@ -47,8 +47,19 @@ function updateDOM(userData = data) {
     // Clear previous UI
     main.innerHTML = '<h2><strong>User</strong> Wealth</h2>'
     // Loop through user data and render in the UI
-    userData.forEach();
+    userData.forEach(user => {
+        // Create a new Div element for the user
+        const userDiv = document.createElement('div');
+        // Apply the user class to the new Div
+        userDiv.classList.add('user');
+        // Add inner HTML to the user div
+        userDiv.innerHTML = `<strong>${user.name}</strong> ${user.balance}`
+        // Add the new element into the DOM
+        main.appendChild(userDiv);
+    });
 }
 
 // Create a Random User
+getRandomUser();
+getRandomUser();
 getRandomUser();
