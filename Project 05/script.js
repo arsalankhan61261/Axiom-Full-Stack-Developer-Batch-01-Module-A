@@ -27,7 +27,7 @@ async function getRandomUser() {
         name: `${user.name.title} ${user.name.first} ${user.name.last}`,
         balance: Math.floor(Math.random()*1000000)
     }
-    // console.log(newUser);
+    console.log(newUser);
 
     // Add the new user into the Data Array
     addData(newUser);
@@ -37,7 +37,7 @@ async function getRandomUser() {
 function addData(newUser) {
     // Add the new User data into the user data array
     data.push(newUser);
-    // console.log('Data Array', data);
+    console.log('Data Array', data);
     // Update the DOM to display users in the data array
     updateDOM();
 }
