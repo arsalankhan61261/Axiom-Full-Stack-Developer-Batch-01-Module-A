@@ -31,6 +31,7 @@ button {
     border: 1px solid #492F10;
     border-radius: 5px;
     display: block;
+    outline: none;
     width: 100%;
     padding: 10px;
     font-weight: bold;
