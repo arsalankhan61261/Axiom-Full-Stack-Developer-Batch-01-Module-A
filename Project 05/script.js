@@ -27,7 +27,7 @@ async function getRandomUser() {
         name: `${user.name.title} ${user.name.first} ${user.name.last}`,
         balance: Math.floor(Math.random()*1000000)
     }
-    console.log(newUser);
+    // console.log(newUser);
 
     // Add the new user into the Data Array
     addData(newUser);
@@ -37,7 +37,7 @@ async function getRandomUser() {
 function addData(newUser) {
     // Add the new User data into the user data array
     data.push(newUser);
-    console.log('Data Array', data);
+    // console.log('Data Array', data);
     // Update the DOM to display users in the data array
     updateDOM();
 }
@@ -53,10 +53,16 @@ function updateDOM(userData = data) {
         // Apply the user class to the new Div
         userDiv.classList.add('user');
         // Add inner HTML to the user div
-        userDiv.innerHTML = `<strong>${user.name}</strong> ${user.balance}`
+        userDiv.innerHTML = `<strong>${user.name}</strong>
+                            ${formatNumberToDollar(user.balance)}`
         // Add the new element into the DOM
         main.appendChild(userDiv);
     });
+}
+
+// Function to format random number as money
+function formatNumberToDollar(number) {
+    return number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
 // Create a Random User
