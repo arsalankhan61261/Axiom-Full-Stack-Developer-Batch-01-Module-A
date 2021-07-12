@@ -102,12 +102,12 @@ function totalBalance() {
     // Update the DOM using new user data array
     updateDOM();
     // Add up all balance from all users
-    // Accumulator starts at 0 zero and adds the current users balance for eaxh iteration
+    // Accumulator starts at 0 zero and adds the current users balance for each iteration
     const balance = data.reduce((acc, user) => (acc += user.balance), 0);
     // Create a Div for the balance
     const balanceElement = document.createElement('div');
     // Set the inner HTML for new Div
-    balanceElement.innerHTML = `<h3>Total Balance: ${formatNumberToDollar(balance)}</h3>`;
+    balanceElement.innerHTML = `<h3>Total Balance: ${formatNumberToDollar(balance)}/-</h3>`;
     // Append child in main element
     main.appendChild(balanceElement);
 } 
@@ -130,4 +130,6 @@ sumBtn.addEventListener('click', totalBalance);
 
 
 // Create a Random User
+getRandomUser();
+getRandomUser();
 getRandomUser();
