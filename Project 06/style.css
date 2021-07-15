@@ -155,11 +155,21 @@ button:focus {
 
 .modal-header h3 {
     margin: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     /* border-bottom: 1px solid white; */
 }
 
 .modal-content {
     padding: 20px;
+}
+
+.modal-content p {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
 }
 
 .modal-form div {
@@ -174,6 +184,7 @@ button:focus {
 .modal-form input {
     padding: 10px;
     width: 100%;
+    font-size: 15px;
 }
 
 .close-btn {
