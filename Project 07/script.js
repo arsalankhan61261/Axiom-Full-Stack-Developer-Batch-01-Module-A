@@ -27,9 +27,21 @@ const incorrectLettersArray = [];
 
 // Function to display the selected word in the DOM
 function displayWord() {
+    // Display the selected word
     word.innerHTML = `
-        ${selectedWord.split('')}
-    `
+        ${selectedWord
+            .split('')
+            .map(letter => `
+                <span class="letter">
+                    ${correctLettersArray.includes(letter) ? letter : ''}
+                </span>
+                `
+            )
+            .join('')
+        }
+    `;
+
+    console.log(word.innerText);
 };
 
 // Execute display word on page load
