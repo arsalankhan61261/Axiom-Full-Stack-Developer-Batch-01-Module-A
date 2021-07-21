@@ -41,8 +41,42 @@ function displayWord() {
         }
     `;
 
+    // Replace new line character and form inner word
+    const innerWord = word.innerText.replace(/\n/g, '');
+
     console.log(word.innerText);
+    console.log(innerWord);
+
+    // Compare inner word to selected word, if it's the same then game over and user won
+    if(innerWord === selectedWord) {
+        finalMessage.innerText = 'Congratulations! You won'
+        popup.style.display = 'flex';
+    }
 };
+
+// Event Handlers
+// 1. Listen for keyboard key press
+window.addEventListener('keydown', e => {
+    console.log(e.keyCode, e.key);
+    // Check if key pressed is a letter a = 6 and z = 90
+    if (e.keyCode >= 65 && e.keyCode <= 90) {
+        const letter = e.key;
+        // Check if letter is in the selected word
+        if (selectedWord.includes(letter)) {
+            // Check if letter is already in correctLettersArray
+            if (!correctLettersArray.includes(letter)) {
+                // Add letter into the correctLettersArray
+                correctLettersArray.push(letter);
+                // Run the displayWord function again to display new letter
+                displayWord();
+            } else {
+                showNotification();
+            }
+        } else {
+            
+        }
+    }
+})
 
 // Execute display word on page load
 displayWord();
