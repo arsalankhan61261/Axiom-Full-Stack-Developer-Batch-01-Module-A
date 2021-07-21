@@ -22,7 +22,7 @@ console.log(selectedWord);
 // console.log(Math.floor(Math.random() * words.length));
 
 // Tracking arrays for correct and incorrect guesses
-const correctLettersArray = [];
+const correctLettersArray = ['a','r','s','a','l','a','n'];
 const incorrectLettersArray = [];
 
 // Function to display the selected word in the DOM
