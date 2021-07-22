@@ -80,7 +80,13 @@ function updateIncorrectLetters() {
         } else {
             part.style.display = 'none';
         }
-    })
+    });
+
+    // Check if user lost
+    if (incorrectLettersArray.length === figureParts.length) {
+        finalMessage.innerText = 'You Lost!'
+        popup.style.display = 'flex';
+    }
 }
 
 // Event Handlers
@@ -113,6 +119,21 @@ window.addEventListener('keydown', e => {
             }
         }
     }
+});
+
+// 2. Listen for click on play again button
+playBtn.addEventListener('click', () => {
+    // Empty correctLettersArray & incorrectLettersArray
+    correctLettersArray.splice(0);
+    incorrectLettersArray.splice(0);
+    // Select a new random word
+    selectedWord = words[Math.floor(Math.random() * words.length)]
+    // Clear incorrect letters display
+    updateIncorrectLetters();
+    // Hide the popup
+    popup.style.display = 'none';
+    // refresh displayed word
+    displayWord();
 })
 
 // Execute display word on page load
