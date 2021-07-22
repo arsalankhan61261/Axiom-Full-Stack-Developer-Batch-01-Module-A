@@ -44,8 +44,8 @@ function displayWord() {
     // Replace new line character and form inner word
     const innerWord = word.innerText.replace(/\n/g, '');
 
-    console.log(word.innerText);
-    console.log(innerWord);
+    // console.log(word.innerText);
+    // console.log(innerWord);
 
     // Compare inner word to selected word, if it's the same then game over and user won
     if(innerWord === selectedWord) {
