@@ -22,7 +22,7 @@ console.log(selectedWord);
 // console.log(Math.floor(Math.random() * words.length));
 
 // Tracking arrays for correct and incorrect guesses
-const correctLettersArray = ['a','r','s','a','l','a','n'];
+const correctLettersArray = [];
 const incorrectLettersArray = [];
 
 // Function to display the selected word in the DOM
@@ -54,6 +54,35 @@ function displayWord() {
     }
 };
 
+// Function to show the notification
+function showNotification() {
+    // Add class show to the notification container
+    notification.classList.add('show');
+    // After 2 seconds hide the notification
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 2000);
+};
+
+// Function to update incorrect letters
+function updateIncorrectLetters() {
+    incorrectLetters.innerHTML = `
+        ${incorrectLettersArray.length > 0 ? '<p>Incorrect Letters</p>' : ''}
+        ${incorrectLettersArray.map(letter => `<span>${letter}</span>`)}
+    `;
+
+    // Display the hangman part
+    figureParts.forEach((part, index) => {
+        // How many incorrect letters has the user guessed
+        const errors = incorrectLettersArray.length;
+        if (index < errors) {
+            part.style.display = 'block';
+        } else {
+            part.style.display = 'none';
+        }
+    })
+}
+
 // Event Handlers
 // 1. Listen for keyboard key press
 window.addEventListener('keydown', e => {
@@ -73,7 +102,15 @@ window.addEventListener('keydown', e => {
                 showNotification();
             }
         } else {
-            
+            // Check if letter is already in incorrectLettersArray
+            if (!incorrectLettersArray.includes(letter)) {
+                // Add letter into the incorrectLettersArray
+                incorrectLettersArray.push(letter)
+                // Update the incorrect letters UI
+                updateIncorrectLetters();
+            } else {
+                showNotification();
+            }
         }
     }
 })
