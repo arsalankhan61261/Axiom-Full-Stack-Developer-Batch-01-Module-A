@@ -73,8 +73,10 @@ function updateIncorrectLetters() {
 
     // Display the hangman part
     figureParts.forEach((part, index) => {
+        // console.log(index);
         // How many incorrect letters has the user guessed
         const errors = incorrectLettersArray.length;
+        // console.log(errors);
         if (index < errors) {
             part.style.display = 'block';
         } else {
