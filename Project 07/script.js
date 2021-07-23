@@ -94,7 +94,7 @@ function updateIncorrectLetters() {
 // Event Handlers
 // 1. Listen for keyboard key press
 window.addEventListener('keydown', e => {
-    console.log(e.keyCode, e.key);
+    // console.log(e.keyCode, e.key);
     // Check if key pressed is a letter a = 6 and z = 90
     if (e.keyCode >= 65 && e.keyCode <= 90) {
         const letter = e.key;
