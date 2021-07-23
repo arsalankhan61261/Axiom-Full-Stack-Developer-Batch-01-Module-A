@@ -73,7 +73,7 @@ function updateIncorrectLetters() {
 
     // Display the hangman part
     figureParts.forEach((part, index) => {
-        // console.log(index);
+        // console.log(part);
         // How many incorrect letters has the user guessed
         const errors = incorrectLettersArray.length;
         // console.log(errors);
