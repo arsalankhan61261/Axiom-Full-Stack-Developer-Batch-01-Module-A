@@ -22,3 +22,38 @@ body {
 .flex {
     display: flex;
 }
+
+input, button {
+    border: 1px solid white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-style: 18px;
+    padding: 10px 10px;
+    outline: none;
+    margin: 0;
+}
+
+input[type='text'] {
+    width: 300px;
+}
+
+.search-btn {
+    cursor: pointer;
+    border-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: 0;
+    background-color: white;
+}
+
+.generate-btn {
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+@media (max-width: 500px) {
+    input[type='text'] {
+        width: 100%;
+    }
+}
