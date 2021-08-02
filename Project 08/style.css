@@ -52,6 +52,10 @@ input[type='text'] {
     border-radius: 5px;
 }
 
+.meals {
+    display: grid;
+}
+
 @media (max-width: 500px) {
     input[type='text'] {
         width: 100%;
