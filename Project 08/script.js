@@ -14,7 +14,19 @@ function searchMeal(e) {
     const searchText = search.value;
     // Check if search input field is empty
     if (searchText.trim()) {
-        console.log(searchText);
+        // console.log(searchText);
+        // Fetch Data from API
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // Update results Heading
+                resultsHeading.innerHTML = `<h2>Search results for ${searchText}</h2>`
+                // Check if any meals return from API
+                if (data.meals === null) {
+                resultsHeading.innerHTML = `<h2>No results found for ${searchText}</h2>`
+                }
+            })
     } else {
         alert('Please enter search keyword')
     };
