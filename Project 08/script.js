@@ -47,3 +47,16 @@ function searchMeal(e) {
 // Event Listeneres
 // 1. Listen for form Submit
 submit.addEventListener('submit', searchMeal);
+
+// 2. Listen for click on Meals
+meals.addEventListener('click', e => {
+    // Find and return only if clicked on a meal-info div
+    const mealInfo = e.path.find(item => {
+        if ( item.classList ) {
+            return item.classList.contains('meal-info')
+        } else {
+            return false;
+        }
+    });
+    console.log(mealInfo);
+})
