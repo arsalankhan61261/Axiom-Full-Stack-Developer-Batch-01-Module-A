@@ -44,6 +44,15 @@ function searchMeal(e) {
     };
 };
 
+// Function to get details of selected meal
+function getMeal(mealId) {
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    })
+}
+
 // Event Listeneres
 // 1. Listen for form Submit
 submit.addEventListener('submit', searchMeal);
@@ -58,5 +67,15 @@ meals.addEventListener('click', e => {
             return false;
         }
     });
-    console.log(mealInfo);
-})
+    // console.log(mealInfo);
+    // Check if meal info exists
+    if (mealInfo) {
+        // Get the data-mealid attribute
+        const mealId = mealInfo.getAttribute('data-mealid');
+        // console.log(mealId);
+
+        // Fetch details of meal
+        getMeal(mealId);
+    }
+});
+
