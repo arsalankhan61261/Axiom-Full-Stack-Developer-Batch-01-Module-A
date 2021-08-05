@@ -46,12 +46,34 @@ function searchMeal(e) {
 
 // Function to get details of selected meal
 function getMeal(mealId) {
+    // Fetch details of meal using the mealId
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data);
-    })
+        const meal = data.meals[0]
+        // console.log(meal);
+
+        // Render the UI
+        displayMealDetails(meal);
+    });
 }
+
+// Function to render meal details in UI
+function displayMealDetails(meal) {
+    console.log(meal);
+    const ingredients = [];
+    // Loop over ingredients attributes
+    for ( let i = 1; i <= 20; i++ ) {
+        // Check if ingredient exists
+        if ( meal[`strIngredient${i}`] ) {
+            // Push all the ingredients and measurements into the ingredients array
+            ingredients.push(`${meal[`strIngredient${i}`]}: ${meal[`strMeasure${i}`]}`);
+        } else {
+            break;
+        }
+    };
+    console.log(ingredients);
+};
 
 // Event Listeneres
 // 1. Listen for form Submit
