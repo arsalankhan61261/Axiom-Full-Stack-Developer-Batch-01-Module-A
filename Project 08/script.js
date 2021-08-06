@@ -50,6 +50,7 @@ function getMeal(mealId) {
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     .then(res => res.json())
     .then(data => {
+        // console.log(data);
         const meal = data.meals[0]
         // console.log(meal);
 
@@ -72,7 +73,19 @@ function displayMealDetails(meal) {
             break;
         }
     };
-    console.log(ingredients);
+    // console.log(ingredients);
+
+    // Render data into UI
+    selectedMeal.innerHTML = `
+        <div class="selected-meal-details">
+            <h1>${meal.strMeal}</h1>
+            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+            <div class"selected-meal-info">
+                ${meal.strCategory ? `<p>${meal.strCategory}</p>` : '' }
+                ${meal.strArea ? `<p>${meal.strArea}</p>` : '' }
+            </div>
+        </div>
+    `;
 };
 
 // Event Listeneres
