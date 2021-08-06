@@ -19,7 +19,7 @@ function searchMeal(e) {
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 // Update results Heading
                 resultsHeading.innerHTML = `<h2>Search results for ${searchText}</h2>`
                 // Check if any meals return from API
@@ -84,7 +84,7 @@ meals.addEventListener('click', e => {
     // Find and return only if clicked on a meal-info div
     const mealInfo = e.path.find(item => {
         if ( item.classList ) {
-            return item.classList.contains('meal-info')
+            return item.classList.contains('meal-info');
         } else {
             return false;
         }
