@@ -19,7 +19,7 @@ function searchMeal(e) {
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 // Update results Heading
                 resultsHeading.innerHTML = `<h2>Search results for ${searchText}</h2>`
                 // Check if any meals return from API
@@ -61,7 +61,7 @@ function getMeal(mealId) {
 
 // Function to render meal details in UI
 function displayMealDetails(meal) {
-    console.log(meal);
+    // console.log(meal);
     const ingredients = [];
     // Loop over ingredients attributes
     for ( let i = 1; i <= 20; i++ ) {
