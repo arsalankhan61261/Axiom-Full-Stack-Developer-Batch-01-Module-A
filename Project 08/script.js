@@ -115,7 +115,7 @@ function randomMeal() {
     fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
     .then(res => res.json())
     .then(data => {
-        console.log(data);
+        // console.log(data);
         const mealName = data.meals[0].strMeal;
         // console.log(mealName);
         // Update results Heading
