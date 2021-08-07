@@ -107,8 +107,8 @@ input[type='text'] {
 
 .selected-meal-info {
     margin: 20px;
-    padding: 10px;
-    border: 2px dotted white;
+    padding: 90px;
+    border: 2px  dotted white;
     border-radius: 10px;
 }
 
