@@ -87,6 +87,7 @@ function displayMealDetails(meal) {
         <div class="selected-meal-details">
             <h1>${meal.strMeal}</h1>
             <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+
             <div class"selected-meal-info">
                 ${meal.strCategory ? `<p>${meal.strCategory}</p>` : '' }
                 ${meal.strArea ? `<p>${meal.strArea}</p>` : '' }
