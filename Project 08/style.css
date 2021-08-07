@@ -107,8 +107,9 @@ input[type='text'] {
 
 .selected-meal-info {
     margin: 20px;
-    padding: 90px;
-    border: 2px  dotted white;
+    color: white;
+    padding: 10px;
+    border: 2px dotted white;
     border-radius: 10px;
 }
 
@@ -119,8 +120,13 @@ input[type='text'] {
     text-align: justify;
 }
 
+.selected-meal-instructions p {
+    color: white;
+} 
+
 .selected-meal-instructions ul {
     padding-left: 0;
+    color: white;
     list-style-type: none;
 }
 
@@ -130,6 +136,10 @@ input[type='text'] {
     margin-top: 10px;
     padding: 10px;
     font-size: 18px;
+}
+
+.selected-meal-instructions h3 {
+    color: white;
 }
 
 @media (max-width: 500px) {
