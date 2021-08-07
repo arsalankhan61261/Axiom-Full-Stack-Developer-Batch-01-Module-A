@@ -42,6 +42,8 @@ function searchMeal(e) {
     } else {
         alert('Please enter search keyword')
     };
+    // Remove previous selected meal info
+    selectedMeal.innerHTML = '';
 };
 
 // Function to get details of selected meal
@@ -50,7 +52,7 @@ function getMeal(mealId) {
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     .then(res => res.json())
     .then(data => {
-        // console.log(data);
+        console.log(data);
         const meal = data.meals[0]
         // console.log(meal);
 
@@ -62,6 +64,11 @@ function getMeal(mealId) {
 // Function to render meal details in UI
 function displayMealDetails(meal) {
     // console.log(meal);
+    // Clear search results
+    meals.innerHTML = '';
+    resultsHeading.innerHTML = '';
+
+    // Array to hold ingredients & measurements
     const ingredients = [];
     // Loop over ingredients attributes
     for ( let i = 1; i <= 20; i++ ) {
@@ -73,7 +80,7 @@ function displayMealDetails(meal) {
             break;
         }
     };
-    // console.log(ingredients);
+    console.log(ingredients);
 
     // Render data into UI
     selectedMeal.innerHTML = `
@@ -83,6 +90,13 @@ function displayMealDetails(meal) {
             <div class"selected-meal-info">
                 ${meal.strCategory ? `<p>${meal.strCategory}</p>` : '' }
                 ${meal.strArea ? `<p>${meal.strArea}</p>` : '' }
+            </div>
+            <div class="selected-meal-instructions">
+                <p>${meal.strInstructions}</p>
+                <h3>Ingredients</h3>
+                <ul>
+                    ${ingredients.map( ingredient => `<li>${ingredient}</li>` ).join('')}
+                </ul>
             </div>
         </div>
     `;
@@ -102,12 +116,12 @@ meals.addEventListener('click', e => {
             return false;
         }
     });
-    // console.log(mealInfo);
+    console.log(mealInfo);
     // Check if meal info exists
     if (mealInfo) {
         // Get the data-mealid attribute
         const mealId = mealInfo.getAttribute('data-mealid');
-        // console.log(mealId);
+        console.log(mealId);
 
         // Fetch details of meal
         getMeal(mealId);
