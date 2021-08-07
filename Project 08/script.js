@@ -24,7 +24,8 @@ function searchMeal(e) {
                 resultsHeading.innerHTML = `<h2>Search results for ${searchText}</h2>`
                 // Check if any meals return from API
                 if (data.meals === null) {
-                resultsHeading.innerHTML = `<h2>No results found for ${searchText}</h2>`
+                resultsHeading.innerHTML = `<h2>Sorry no results found for ${searchText}</h2>`
+                meals.innerHTML = '';
                 } else {
                     meals.innerHTML = data.meals.map( meal => `
                         <div class="meal">
