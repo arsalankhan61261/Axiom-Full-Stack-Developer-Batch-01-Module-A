@@ -19,7 +19,7 @@ function searchMeal(e) {
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 // Update results Heading
                 resultsHeading.innerHTML = `<h2>Search results for ${searchText}</h2>`
                 // Check if any meals return from API
@@ -38,7 +38,7 @@ function searchMeal(e) {
                 }
             });
         // Clear the search text
-        search.value = ''; 
+        search.value = '';
     } else {
         alert('Please enter search keyword')
     };
@@ -87,7 +87,6 @@ function displayMealDetails(meal) {
         <div class="selected-meal-details">
             <h1>${meal.strMeal}</h1>
             <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
-
             <div class"selected-meal-info">
                 ${meal.strCategory ? `<p>${meal.strCategory}</p>` : '' }
                 ${meal.strArea ? `<p>${meal.strArea}</p>` : '' }
@@ -101,6 +100,37 @@ function displayMealDetails(meal) {
             </div>
         </div>
     `;
+};
+
+// Function to get the random meal using the API
+function randomMeal() {
+    // Clear search results
+    meals.innerHTML = '';
+    resultsHeading.innerHTML = '';
+    // Remove previous selected meal info
+    selectedMeal.innerHTML = '';
+
+    // Fetch details of meal using the random meal API
+    fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        const mealName = data.meals[0].strMeal;
+        // console.log(mealName);
+        // Update results Heading
+        resultsHeading.innerHTML = `<h2>Results for Random Meal</h2>`
+        
+        // Show random mealin UI        
+                    meals.innerHTML = data.meals.map( meal => `
+                        <div class="meal">
+                            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+                            <div class="meal-info" data-mealID="${meal.idMeal}">
+                                <h3>${meal.strMeal}</h3>
+                            </div>
+                        </div>
+                    `)
+                    .join('')
+    })
 };
 
 // Event Listeneres
@@ -128,4 +158,7 @@ meals.addEventListener('click', e => {
         getMeal(mealId);
     }
 });
+
+// 3. Listen for Random button
+generate.addEventListener('click', randomMeal);
 
