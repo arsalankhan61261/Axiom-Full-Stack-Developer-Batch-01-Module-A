@@ -81,7 +81,7 @@ function displayMealDetails(meal) {
             break;
         }
     };
-    console.log(ingredients);
+    // console.log(ingredients);
 
     // Render data into UI
     selectedMeal.innerHTML = `
@@ -115,9 +115,9 @@ function randomMeal() {
     fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
     .then(res => res.json())
     .then(data => {
-        console.log(data);
+        // console.log(data);
         const mealName = data.meals[0].strMeal;
-        console.log(mealName);
+        // console.log(mealName);
         // Update results Heading
         resultsHeading.innerHTML = `<h2>Results for Random Meal</h2>`
         
