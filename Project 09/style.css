@@ -21,13 +21,93 @@ body {
 }
 
 h1 {
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    margin: 0;
 }
 
 h3 {
-
+    margin: 40px 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(53, 50, 49, 0.925);
 }
 
 h4 {
+    margin: 0;
+    text-transform: uppercase;
+}
 
+.credit-debit-container {
+    background-color: #e5ebc7;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.credit-debit-container > div {
+    flex: 1;
+    text-align: center;
+}
+
+.credit-debit-container > div:first-of-type {
+    border-right: 1.5px solid rgba(53, 50, 49, 0.925);
+}
+
+.money {
+    font-size: 24px;
+    letter-spacing: 1.5px;
+    margin: 5px 0;
+}
+
+.money.credit {
+    color: #44aac7;
+}
+
+.money.debit {
+    color: #e84d4d;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.list li {
+    background-color: #e5ebc7;
+    justify-content: space-between;
+    display: flex;
+    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.list li.credit {
+    border-right: 10px solid #44aac7;
+}
+
+.list li.debit {
+    border-right: 10px solid #e84d4d ;
+}
+
+.delete-btn {
+    background-color: #635f63;
+    border: 0;
+    color: white;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 3px 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%,-50%);
+    opacity: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.list li:hover .delete-btn {
+    opacity: 1;
 }
