@@ -9,10 +9,10 @@ const amount = document.getElementById('amount');
 
 // Temporary array of transactions - to be replaced with local storage
 const Transactions = [
-    { id: 1, reason: 'Salary', amount: 5000 },
-    { id: 2, reason: 'Breakfast', amount: -20 },
-    { id: 3, reason: 'Lunch', amount: -30 },
-    { id: 4, reason: 'Dinner', amount: -60 },
+    // { id: 1, reason: 'Salary', amount: 5000 },
+    // { id: 2, reason: 'Breakfast', amount: -20 },
+    // { id: 3, reason: 'Lunch', amount: -30 },
+    // { id: 4, reason: 'Dinner', amount: -60 },
 ];
 
 // Get transaction data from storage
