@@ -28,7 +28,7 @@ function displayTransaction(transaction) {
     transactionLI.classList.add( transaction.amount > 0 ? 'credit' : 'debit' );
     // Assign the inner HTML for the transaction li
     transactionLI.innerHTML = `
-        ${transaction.reason} <span>${transaction.amount}</span>
+        ${transaction.reason} <span>${(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(transaction.amount))}</span>
         <button class="delete-btn" onclick="deleteTransaction(${transaction.id})">X</button>   
     `;
     // Add the list item in the DOM under the transaction history list
@@ -72,9 +72,9 @@ function updateBalance() {
     // console.log(debitBalance);
 
     // Update values in the DOM for overall balance, credit balance and debit balance
-    balance.innerText = `$${totalBalance}`;
-    moneyCredit.innerText = `$${creditBalance}`;
-    moneyDebit.innerText = `$${debitBalance}`;
+    balance.innerText = `$${(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(totalBalance))}`;
+    moneyCredit.innerText = `$${(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(creditBalance))}`;
+    moneyDebit.innerText = `$${(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(debitBalance))}`;
 };
 
 // Function to create a random ID
