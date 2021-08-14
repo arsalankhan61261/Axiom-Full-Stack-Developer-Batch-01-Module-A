@@ -72,6 +72,7 @@ function updateBalance() {
     // console.log(debitBalance);
 
     // Update values in the DOM for overall balance, credit balance and debit balance
+    // And convert amounts with commas
     balance.innerText = `$${(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(totalBalance))}`;
     moneyCredit.innerText = `$${(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(creditBalance))}`;
     moneyDebit.innerText = `$${(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(debitBalance))}`;
