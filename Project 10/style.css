@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #9da8a1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.container {
+    background-color: #3b3f3c;
+    border-radius: 10px;
+    display: flex;
+    padding: 20px;
+    position: relative;
+    margin: 100px, 0;
+    z-index: 10;
+}
+
+.album-art {
+    position: relative;
+    width: 150px;
+}
+
+.album-art img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotate 3s linear infinite;
+    animation-play-state: paused;
+}
+
+.container.play img {
+    animation-play-state: running;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;   
+}
+
+.nav-btn {
+    background-color: #3b3f3c;
+    color: rgb(211, 202, 202);
+    border: 0;
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.nav-btn-large {
+    font-size: 24px;
+}
+
+.info {
+    background-color: rgb(211, 202, 202);
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 150px;
+    /* opacity: 0; */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
