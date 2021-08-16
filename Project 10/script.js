@@ -24,5 +24,5 @@ function loadTrack(track) {
     // Update the src in the audio element with the audio file of the selected track
     audio.src = `Music/${track}.mp3`;
     // Update the src in the image element with the image file of the selected track
-    albumArt.src = `Images/${track}.jpg`;
+    albumArt.src = `images/${track}.jpg`;
 };
