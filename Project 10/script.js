@@ -99,3 +99,6 @@ previousBtn.addEventListener('click', prevTrack);
 
 // 3. Listen for click on the nextBtn
 nextBtn.addEventListener('click', nextTrack);
+
+// 4. Listen for a timeupdate on audio element
+// audio.addEventListener('timeupdate', updateProgress);
