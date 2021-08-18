@@ -5,6 +5,7 @@ const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
 const audio = document.getElementById('audio');
 const progress = document.getElementById('progress');
+const progressBar = document.getElementById('progress-bar');
 const title = document.getElementById('song-title');
 const albumArt = document.getElementById('album-art');
 
@@ -79,6 +80,31 @@ function nextTrack() {
     playTrack();
 };
 
+// Function to update the progress bar
+function updateProgress(e) {
+    // Destructure the total duration and currentTime of the audio
+    const { duration, currentTime } = e.srcElement;
+    // console.log(duration, currentTime);
+    // Calculate the percentage of overall audio played using currentTime and total duration
+    const progressPercentage = currentTime / duration * 100;
+    // console.log(progressPercentage);
+    // Reassing width of progress bar using the progressPercentage
+    progressBar.style.width = `${progressPercentage}%`;
+};
+
+// Fucntion to set the progress bar
+function setProgress(e) {
+    // Get the overall width in px for progress bar container
+    const width = this.clientWidth;
+    // console.log(e.offsetX);
+    // Get the x axis px value for the location of click on the progress bar container 
+    const clickLocation = e.offsetX;
+    // Get the total duaration of the track
+    const duration = audio.duration;
+    // Reassign the currentTime of audio track by calculating based on above metrics
+    audio.currentTime = clickLocation / width * duration;
+};
+
 // Event Listeners
 // 1. Listen for click on the play button
 playBtn.addEventListener('click', () => {
@@ -101,4 +127,10 @@ previousBtn.addEventListener('click', prevTrack);
 nextBtn.addEventListener('click', nextTrack);
 
 // 4. Listen for a timeupdate on audio element
-// audio.addEventListener('timeupdate', updateProgress);
+audio.addEventListener('timeupdate', updateProgress);
+
+// 5. Listen for click on the progress bar
+progress.addEventListener('click', setProgress);
+
+// 6. Listen for end of playback for current track
+audio.addEventListener('ended', nextTrack);
