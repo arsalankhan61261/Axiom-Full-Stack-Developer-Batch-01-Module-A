@@ -16,7 +16,7 @@ body  {
 
 .filter-container {
     margin-top: 20px;
-    width: 75vw;
+    width: 65vw;
     max-width: 800px;
 }
 
@@ -33,7 +33,7 @@ body  {
     background-color: #8a8b9791;
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     border-radius: 2px;
-    width: 58vw;
+    width: 60vw;
     max-width: 800px;
     padding: 25px;
     margin: 40px 0;
