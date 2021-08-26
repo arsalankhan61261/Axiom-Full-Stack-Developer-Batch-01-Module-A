@@ -29,7 +29,7 @@ async function renderPosts() {
         postDiv.classList.add('post');
         // Create the inner content for the main post div
         postDiv.innerHTML = `
-            <div class="post-id">id${post.id}</div>
+            <div class="post-id">${post.id}</div>
             <div class="post-content">
                 <h2 class="post-title">${post.title}</h2>
                 <p class="post-body">${post.body}</p>
