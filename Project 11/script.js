@@ -40,4 +40,28 @@ async function renderPosts() {
     });
 };
 
+// Fucnction to render CSS the Loader Animation
+function showLoader() {
+    loader.classList.add('show');
+    // Increment the page global variable by 1
+    page++;
+    // console.log(page);
+    // Render the posts from the new page
+    renderPosts();
+    // Remove the loader
+    loader.classList.remove('show');
+};
+
+// Event Listener
+// Listen for scroll in the browser window
+window.addEventListener('scroll', () => {
+    // Destructuring properties from
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    // Check if scrolled to bottom of page
+    if ( scrollTop + clientHeight >= scrollHeight - 1 ) {
+        // Display the loader animation
+        showLoader();
+    } 
+});
+
 renderPosts();
