@@ -1,5 +1,5 @@
 // Get DOM Elements
-const filter = document.getElementById('filter-container');
+const filter = document.getElementById('filter');
 const newsFeed = document.getElementById('news-feed-container');
 const loader = document.getElementById('loader');
 
@@ -52,6 +52,12 @@ function showLoader() {
     loader.classList.remove('show');
 };
 
+// Function to filter posts
+function filterPosts(e) {
+    // Save the input text as the filterKeyword
+    const filterKeyword = e.target.value;
+}; 
+
 // Event Listener
 // Listen for scroll in the browser window
 window.addEventListener('scroll', () => {
@@ -61,7 +67,10 @@ window.addEventListener('scroll', () => {
     if ( scrollTop + clientHeight >= scrollHeight - 1 ) {
         // Display the loader animation
         showLoader();
-    } 
+    }; 
 });
+
+// Listen for input in the filter input
+filter.addEventListener('input', filterPosts);
 
 renderPosts();
