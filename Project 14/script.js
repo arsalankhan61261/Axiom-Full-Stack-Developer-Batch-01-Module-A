@@ -17,51 +17,51 @@ const customTextDiv = document.getElementById('custom-text');
 // Array for holding all images and text to be read
 const data = [
     {
-        image: './img/angry.jpg',
+        image: './Images/angry.jpg',
         text: "I'm Angry"
     },
     {
-        image: './img/drink.jpg',
+        image: './Images/drink.jpg',
         text: "I'm Thirsty"
     },
     {
-        image: './img/food.jpg',
+        image: './Images/food.jpg',
         text: "I'm Hungry"
     },
     {
-        image: './img/grandma.jpg',
+        image: './Images/grandma.jpg',
         text: "I want to go to Grandma's"
     },
     {
-        image: './img/happy.jpg',
+        image: './Images/happy.jpg',
         text: "I'm Happy"
     },
     {
-        image: './img/home.jpg',
+        image: './Images/home.jpg',
         text: "I Want to go Home"
     },
     {
-        image: './img/hurt.jpg',
+        image: './Images/hurt.jpg',
         text: "I'm Hurt"
     },
     {
-        image: './img/outside.jpg',
+        image: './Images/outside.jpg',
         text: "I Want to go Outside"
     },
     {
-        image: './img/sad.jpg',
+        image: './Images/sad.jpg',
         text: "I'm Sad"
     },
     {
-        image: './img/scared.jpg',
+        image: './Images/scared.jpg',
         text: "I'm Scared"
     },
     {
-        image: './img/school.jpg',
+        image: './Images/school.jpg',
         text: "I Want to go to School"
     },
     {
-        image: './img/tired.jpg',
+        image: './Images/tired.jpg',
         text: "I'm Tired"
     }
 ]
