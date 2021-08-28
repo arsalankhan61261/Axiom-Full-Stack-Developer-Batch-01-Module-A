@@ -55,8 +55,25 @@ function showLoader() {
 // Function to filter posts
 function filterPosts(e) {
     // Save the input text as the filterKeyword
-    const filterKeyword = e.target.value;
-}; 
+    const filterKeyword = e.target.value.toLowerCase();
+    // Get all post data from DOM
+    const posts = document.querySelectorAll('.post');
+    // Process all posts in the post node list
+    posts.forEach( post => {
+        // Get the title text
+        const title = post.querySelectorAll('.post-title').innerText;
+        // Get the body text
+        const body = post.querySelectorAll('.post-body').innerText;
+        // Check if filterKeyword exists in title or body
+        if ( title.indexOf(filterKeyword) >= 0 || body.indexOf(filterKeyword) >= 0 ) {
+            // Display the post if filterKeyword exists in title or body of post
+            post.style.display = 'flex';
+        } else {
+            // Hide the post if the filterKeyword does not exist in title or body of post
+            post.style.display = 'none';
+        }
+    })
+};
 
 // Event Listener
 // Listen for scroll in the browser window
