@@ -59,6 +59,10 @@ h1 {
     transform: translate(-50%,0);
 }
 
+.custom-text textarea {
+    outline: none;
+}
+
 .custom-text select {
     background-color: #d35400;
     border: 0;
