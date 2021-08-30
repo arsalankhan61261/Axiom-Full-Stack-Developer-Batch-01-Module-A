@@ -93,7 +93,7 @@ function createBox(imageObj) {
     })
     // Add the new box to the DOM
     main.appendChild(box);
-}
+};
 
 // Initialize speech synthesis
 const message = new SpeechSynthesisUtterance();
