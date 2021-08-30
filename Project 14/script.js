@@ -100,17 +100,17 @@ const message = new SpeechSynthesisUtterance();
 
 // 2. Function to get voices from Web Speech API and put into the select box
 function populateVoiceList() {
-    if(typeof speechSynthesis === 'undefined') {
-      return;
-    }
-  
     let voices = speechSynthesis.getVoices();
     voicesBackup = voices;
+
+    if(typeof speechSynthesis === 'undefined') {
+        return;
+    }  
   
     for(var i = 0; i < voices.length; i++) {
       var option = document.createElement('option');
       option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
-      
+
       if(voices[i].default) {
         option.textContent += ' -- DEFAULT';
       }
