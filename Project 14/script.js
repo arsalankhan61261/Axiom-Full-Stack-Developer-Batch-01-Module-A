@@ -102,6 +102,7 @@ const message = new SpeechSynthesisUtterance();
 function populateVoiceList() {
     let voices = speechSynthesis.getVoices();
     voicesBackup = voices;
+    // console.log(voicesBackup);
 
     if(typeof speechSynthesis === 'undefined') {
         return;
