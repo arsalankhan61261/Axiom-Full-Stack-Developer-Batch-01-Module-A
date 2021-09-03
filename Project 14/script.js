@@ -67,7 +67,7 @@ const data = [
 ]
 
 // Array for all Web Speech API Voices
- let voicesBackup = [];
+ let voicesArray = [];
 
 // Create a box for each object in the data array
 data.forEach(createBox);
@@ -99,29 +99,24 @@ function createBox(imageObj) {
 const message = new SpeechSynthesisUtterance();
 // console.log(message);
 
-// 2. Function to get voices from Web Speech API and put into the select box
-function populateVoiceList() {
-    let voices = speechSynthesis.getVoices();
-    voicesBackup = voices;
-    // console.log(voicesBackup);
-
-    if(typeof speechSynthesis === 'undefined') {
-        return;
-    }  
-  
-    for(var i = 0; i < voices.length; i++) {
-      var option = document.createElement('option');
-      option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
-
-      if(voices[i].default) {
-        option.textContent += ' -- DEFAULT';
-      }
-  
-      option.setAttribute('data-lang', voices[i].lang);
-      option.setAttribute('data-name', voices[i].name);
-      voiceSelect.appendChild(option);
-    }
-  }
+// Function to fetch voices from Web Speech API
+function renderVoices() {
+	const voices = speech.getVoices(); // now should have an array of all voices
+    // Get voices from speech synthesis get voices method
+    voicesArray = voices;
+    // Render voices in the dropdown
+    voicesArray.forEach((voice) => {
+        console.log(voicesArray);
+        let option = document.createElement('option');
+        option.textContent = `${voice.name} (${voice.lang}) `;
+        if ( voice.default ) {
+            option.textContent += '(DEFAULT VOICE)';
+        }
+        option.setAttribute('data-lang', voice.lang);
+        option.setAttribute('data-name', voice.name);
+        voiceSelect.appendChild(option);
+    })
+};
 
 // 3. Set the text for speech synthesis
 function setMessage(text) {
@@ -133,17 +128,17 @@ function speakText() {
     speechSynthesis.speak(message);
 }
 
-// 5. Function to set the new voice
-function setVoice(e) {
-    console.log(e.target.value);
-    message.voice = voicesBackup.find(voice => voice.name === e.target.value);
-}
+const speech = window.speechSynthesis;
+
+// Function to fetch voices from Web Speech API
+function fetchVoices() {
+    if(speech.onvoiceschanged !== undefined) {
+        speech.onvoiceschanged = () => renderVoices();
+    }
+};
   
 // Execute populateVoiceList function
-populateVoiceList();
-if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
-speechSynthesis.onvoiceschanged = populateVoiceList;
-}
+renderVoices();
 
 // Event Listeners
 // 1. Toggle Button
@@ -157,8 +152,8 @@ closeBtn.addEventListener('click', () => {
 })
 
 // 3. Event Listener when changing voices
-speechSynthesis.addEventListener('voiceschanged', populateVoiceList);
-voiceSelect.addEventListener('change', setVoice);
+speechSynthesis.addEventListener('voiceschanged', renderVoices);
+// voiceSelect.addEventListener('change', fetchVoices);
 
 // 4. Event Listener for custom text reader
 readBtn.addEventListener('click', () => {
