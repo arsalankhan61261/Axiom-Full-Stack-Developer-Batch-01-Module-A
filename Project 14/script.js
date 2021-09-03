@@ -97,6 +97,7 @@ function createBox(imageObj) {
 
 // Initialize speech synthesis
 const message = new SpeechSynthesisUtterance();
+// console.log(message);
 
 // 2. Function to get voices from Web Speech API and put into the select box
 function populateVoiceList() {
